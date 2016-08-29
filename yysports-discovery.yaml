@@ -48,8 +48,8 @@ spring:
   profiles: peer2
   
 eureka:
-  dashboard:
-    path: /dashboard
+#  dashboard:
+#    path: /dashboard
   instance:
     hostname: peer2
     leaseRenewalIntervalInSeconds: 3
@@ -58,6 +58,3 @@ eureka:
       defaultZone: http://peer1:8761/eureka/
   server:
     waitTimeInMsWhenSyncEmpty: 0
-
-#eureka.client.register-with-eureka: false
-#eureka.client.fetch-registry: false
