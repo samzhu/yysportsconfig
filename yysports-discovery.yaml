@@ -19,7 +19,7 @@ spring:
 
 eureka:
   instance:
-    hostname: ${HOSTNAME}
+    preferIpAddress: true
   client:
     serviceUrl:
       defaultZone: ${DEFAULTZONE}
