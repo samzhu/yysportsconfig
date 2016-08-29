@@ -26,7 +26,38 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${DEFAULTZONE}
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
 
+---
+
+spring:
+  profiles: peer1
+  
+eureka:
+  instance:
+    hostname: peer1
+    leaseRenewalIntervalInSeconds: 3
+  client:
+    serviceUrl:
+      defaultZone: http://peer2:8762/eureka/
+      
+---
+
+spring:
+  profiles: peer2
+  
+eureka:
+  dashboard:
+    path: /dashboard
+  instance:
+    hostname: peer2
+    leaseRenewalIntervalInSeconds: 3
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
 
 #eureka.client.register-with-eureka: false
 #eureka.client.fetch-registry: false
