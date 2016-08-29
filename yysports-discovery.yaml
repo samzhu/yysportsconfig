@@ -1,4 +1,29 @@
 server.port: ${PORT:8761}
+spring.profiles.active: single
 
-eureka.client.register-with-eureka: false
-eureka.client.fetch-registry: false
+---
+
+spring:
+  profiles: single
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+---
+
+spring:
+  profiles: ha
+
+eureka:
+  instance:
+    hostname: ${HOSTNAME}
+  client:
+    serviceUrl:
+      defaultZone: ${DEFAULTZONE}
+
+
+#eureka.client.register-with-eureka: false
+#eureka.client.fetch-registry: false
