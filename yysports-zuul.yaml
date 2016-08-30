@@ -1,0 +1,3 @@
+server.port: 5978
+
+server.tomcat.max-threads: 0 # Maximum amount of worker threads.
