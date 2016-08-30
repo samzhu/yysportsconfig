@@ -18,20 +18,6 @@ eureka:
 ---
 
 spring:
-  profiles: ha
-
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: ${DEFAULTZONE}
-    server:
-      waitTimeInMsWhenSyncEmpty: 0
-
----
-
-spring:
   profiles: peer1
   
 eureka:
