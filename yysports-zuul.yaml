@@ -17,5 +17,6 @@ server.tomcat.max-threads: 0 # Maximum amount of worker threads.
 #zuul.host.maxTotalConnections: 1000
 #zuul.host.maxPerRouteConnections: 100
 #zuul.eureka.ledgerservice.semaphore.maxSemaphores: 1000
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 3000
 hystrix.threadpool.default.coreSize: 500
 hystrix.command.default.execution.isolation.semaphore.maxConcurrentRequests: 500
