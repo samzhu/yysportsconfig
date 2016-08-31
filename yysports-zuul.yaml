@@ -2,14 +2,16 @@ server.port: 5978
 
 server.tomcat.max-threads: 0 # Maximum amount of worker threads.
 
-# Increase the Hystrix timeout to 60s (globally)
+
 hystrix:
   command:
     default:
       execution:
         isolation:
-          thread.timeoutInMilliseconds: 60000
-          semaphore.maxConcurrentRequests: 500
+          # Increase the Hystrix timeout to 60s (globally)
+          thread.timeoutInMilliseconds: 60000 
+          semaphore.maxConcurrentRequests: 1000
+  #共用Thread pool size
   threadpool.default.coreSize: 500
   
 #zuul.host.maxTotalConnections: 1000
