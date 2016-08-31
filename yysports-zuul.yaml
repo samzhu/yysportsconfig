@@ -26,7 +26,7 @@ hystrix.command.default.execution.timeout.enabled: false
 # Increase the Hystrix timeout to 60s (globally)
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
 
-
+hystrix.command.default.execution.isolation.strategy: THREAD
 #hystrix.command.default.execution.isolation.semaphore.maxConcurrentRequests: 500
 
 # Disable Hystrix timeout for a single service
