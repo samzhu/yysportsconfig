@@ -29,7 +29,7 @@ hystrix:
 
 yysports-sms:
   ribbon:
-    ReadTimeout: 2000
+    ReadTimeout: 10000
     ConnectTimeout: 500
     OkToRetryOnAllOperations: true
     MaxAutoRetriesNextServer: 2
