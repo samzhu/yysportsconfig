@@ -3,17 +3,29 @@ server.port: 5978
 server.tomcat.max-threads: 0 # Maximum amount of worker threads.
 
 
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          # Increase the Hystrix timeout to 60s (globally)
-          thread.timeoutInMilliseconds: 60000 
-          semaphore.maxConcurrentRequests: 1000
-  #共用Thread pool size
-  threadpool.default.coreSize: 500
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          # Increase the Hystrix timeout to 60s (globally)
+#          thread.timeoutInMilliseconds: 60000 
+#          semaphore.maxConcurrentRequests: 1000
+#  #共用Thread pool size
+#  threadpool.default.coreSize: 500
   
 #zuul.host.maxTotalConnections: 1000
 #zuul.host.maxPerRouteConnections: 100
 #zuul.eureka.ledgerservice.semaphore.maxSemaphores: 1000
+ribbon:
+ ConnectTimeout: 20000000
+ ReadTimeout: 20000000
+ MaxTotalHttpConnections: 5000
+ MaxHttpConnectionsPerHost: 5000
+ ActiveConnectionsLimit: 4000
+
+ hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 20000000
+ zuul.hystrix.command.default.execution.isolation.strategy: SEMAPHORE
+ zuul.hystrix.command.default.execution.isolation.semaphore.maxConcurrentRequests: 2000
+ zuul.hystrix.command.default.fallback.isolation.semaphore.maxConcurrentRequests: 2000
+ zuul.eureka.default.semaphore.maxSemaphores: 30000
