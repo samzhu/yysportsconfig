@@ -14,3 +14,4 @@ hystrix:
 
 zuul.host.maxTotalConnections: 1000
 zuul.host.maxPerRouteConnections: 100
+zuul.eureka.ledgerservice.semaphore.maxSemaphores:1000
